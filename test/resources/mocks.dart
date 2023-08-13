@@ -1,6 +1,7 @@
 import 'package:firebase_admin/src/auth/credential.dart';
 import 'package:firebase_admin/src/testing.dart';
 import 'package:firebase_admin/testing.dart';
+import 'package:googleapis/fcm/v1.dart';
 
 var projectId = 'project_id';
 
@@ -9,6 +10,12 @@ var appName = 'mock-app-name';
 var databaseURL = 'https://databaseName.firebaseio.com';
 
 var storageBucket = 'bucketName.appspot.com';
+
+var messagingPayload = SendMessageRequest(
+    validateOnly: true,
+    message: Message(
+      notification: Notification(body: 'body', title: 'title'),
+    ));
 
 var credential = FirebaseAdmin.instance.testCredentials();
 

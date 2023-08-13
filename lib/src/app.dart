@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_admin/src/cloud_messaging.dart';
 import 'package:firebase_admin/src/storage.dart';
 
 import '../firebase_admin.dart';
@@ -49,6 +50,9 @@ class App {
 
   /// Gets [Storage] service for this application.
   Storage storage() => _getService(() => Storage(this));
+
+  /// Gets [CloudMessaging] service for this application.
+  CloudMessaging messaging() => _getService(() => CloudMessaging(this));
 
   /// Renders this app unusable and frees the resources of all associated
   /// services.
